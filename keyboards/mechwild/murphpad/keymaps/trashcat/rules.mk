@@ -1,0 +1,3 @@
+VIA_ENABLE = yes
+LTO_ENABLE = yes
+MIDI_ENABLE = yes
