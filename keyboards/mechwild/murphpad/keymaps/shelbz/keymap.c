@@ -158,18 +158,18 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
     switch (index) {
-        case _BASE:
-            if (clockwise) {
-                tap_code(KC_VOLU);
-            } else {
-                tap_code(KC_VOLD);
-            }
-        break;
-		case _FN2:
+        case 0:
             if (clockwise) {
                 midi_send_cc(&midi_device, 0, current_MIDI_ccNumber, 65);
             } else {
                 midi_send_cc(&midi_device, 0, current_MIDI_ccNumber, 63);
+            }
+        break;
+		case 1:
+            if (clockwise) {
+                tap_code(KC_RIGHT);
+            } else {
+                tap_code(KC_LEFT);
             }
         break;
     }
@@ -202,7 +202,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         oled_set_cursor(8,2);
         switch(selected_layer){
             case _BASE:
-                oled_write_P(PSTR("BASE"), false);
+                oled_write_P(PSTR("LTRM"), false);
                 break;
             case _FN1:
                 oled_write_P(PSTR("FN "), false);
