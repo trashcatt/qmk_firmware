@@ -45,10 +45,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_landscape(
         TT(_FN1), TT(_FN2), KC_MUTE,
 
-        KC_NLCK,  KC_PSLS,  KC_PAST, KC_PMNS, KC_PPLS,      KC_BSPC,
-        KC_TAB,   KC_P7,    KC_P8,   KC_P9,   KC_PDOT,      KC_RGUI,
-        KC_RSFT,  KC_P4,    KC_P5,   KC_P6,   KC_COMMA,     KC_RCTL,
-        KC_P0,    KC_P1,    KC_P2,   KC_P3,   KC_PENT,      KC_RALT,
+        MI_C,  MI_Db,  MI_D, MI_Eb, MI_E,      MI_F,
+        MI_Gb,   MI_G,    MI_Ab,   MI_A,   MI_Bb,      MI_B,
+        MI_C_1,  MIDI_CC1,    MIDI_CC2,   MIDI_CC3,   MIDI_CC4,     MIDI_CC5,
+        MIDI_CC6,    MIDI_CC7,    MIDI_CC8,   MIDI_CC8,   MIDI_CC9,      KC_1,
 
                  TT(_FN3), TT(_FN4), TT(_RGB)
     ),
