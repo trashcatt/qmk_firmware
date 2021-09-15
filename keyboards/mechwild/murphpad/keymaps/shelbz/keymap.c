@@ -19,7 +19,6 @@
 #include "layout_landscape.h"
 
 extern MidiDevice midi_device;
-
 #define LANDSCAPE_MODE
 
 // Defines names for use in layer keycodes and the keymap
@@ -43,7 +42,7 @@ static char    current_MIDI_ccNumber_char[3] = {'0', '1', '\0'};
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT_landscape(
-        TT(_FN1), TT(_FN2), KC_MUTE,
+        TG(_FN1), TT(_FN2), KC_MUTE,
 
         MI_C,  MI_Db,  MI_D, MI_Eb, MI_E,      MI_F,
         MI_Gb,   MI_G,    MI_Ab,   MI_A,   MI_Bb,      MI_B,
@@ -55,10 +54,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_FN1] = LAYOUT_landscape(
         _______,  _______, ENCFUNC,
 
-        _______,  KC_F10,   KC_F11,  KC_F12,  KC_PSCR,      _______,
-        _______,  KC_F7,    KC_F8,   KC_F9,   KC_SLCK,      _______,
-        _______,  KC_F4,    KC_F5,   KC_F6,   KC_PAUS,      _______,
-        _______,  KC_F1,    KC_F2,   KC_F3,   _______,      _______,
+        KC_NLCK,  KC_P7,   KC_P8,  KC_P9,  KC_BSPC,      KC_PPLS,
+        _______,  KC_P4,    KC_P5,   KC_P6,   KC_PGUP,      KC_PMNS,
+        KC_UP,  KC_P1,    KC_P2,   KC_P3,   KC_PGDN,      KC_PAST,
+        KC_DOWN,  KC_P0,    KC_PDOT,   KC_PENT,   _______,      _______,
 
                  _______, _______, _______
     ),
@@ -205,7 +204,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                 oled_write_P(PSTR("LTRM"), false);
                 break;
             case _FN1:
-                oled_write_P(PSTR("FN "), false);
+                oled_write_P(PSTR("NUM "), false);
                 oled_write(selectedkey_rec.keydesc, false);
                 break;
             case _FN2:
@@ -233,7 +232,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     oled_write_P(PSTR("Temp BASE"), false);
                     break;
                 case _FN1:
-                    oled_write_P(PSTR("Temp FN "), false);
+                    oled_write_P(PSTR("NUMPAD "), false);
                     oled_write(selectedkey_rec.keydesc, false);
                     break;
                 case _FN2:
